@@ -1,0 +1,8 @@
+{
+  "api_model": "deepseek-chat",
+  "instructions": "Resume este contenido destacando los 3 puntos clave, mantén un tono profesional y añade una conclusión accionable.",
+  "output_format": "markdown",
+  "temperature": 0.3,
+  "max_tokens": 2000,
+  "language": "es"
+}
