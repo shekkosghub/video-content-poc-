@@ -1,5 +1,5 @@
 {
-  "api_model": "deepseek-chat",
+  "api_model": "gpt-4o-mini",
   "instructions": "Resume este contenido destacando los 3 puntos clave, mantén un tono profesional y añade una conclusión accionable.",
   "output_format": "markdown",
   "temperature": 0.3,
