@@ -15,6 +15,18 @@
 2. Ajusta las instrucciones en `config.json` según el tipo de salida deseada.
 
 ## ▶️ Ejecución
+1. **Crear entorno virtual (Solo una vez)** 
+```bash
+python -m venv .venv
+```
+2. **Activar el entorno virtual:**
+```bash
+```
+3. **Instalar requerimientos (solo una vez):**
 ```bash
 pip install -r requirements.txt
+```
+4. **Ejecutar:**
+```bash
 python main.py
+```
