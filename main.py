@@ -34,15 +34,12 @@ def transcribe_audio(audio_path: str) -> str:
     return response.text.strip()
 
 def generate_content(transcription: str, config: dict) -> str:
-    """Genera contenido usando DeepSeek API (compatible con SDK de OpenAI)"""
-    api_key = os.getenv("DEEPSEEK_API_KEY")
+    api_key = os.getenv("OPENAI_API_KEY")
     if not api_key:
-        raise ValueError("⚠️ Falta DEEPSEEK_API_KEY en el archivo .env")
+        raise ValueError("⚠️ Falta OPENAI_API_KEY en el archivo .env")
     
-    client = OpenAI(
-        api_key=api_key,
-        base_url="https://api.deepseek.com"
-    )
+    # Un solo cliente OpenAI para transcripción y generación
+    client = OpenAI(api_key=api_key)
     
     prompt = (
         f"Transcripción del video:\n---\n{transcription}\n---\n\n"
@@ -51,7 +48,7 @@ def generate_content(transcription: str, config: dict) -> str:
     )
     
     response = client.chat.completions.create(
-        model=config.get("api_model", "deepseek-chat"),
+        model=config.get("api_model", "gpt-4o-mini"),
         messages=[
             {"role": "system", "content": "Eres un asistente experto en síntesis y estructuración de contenido audiovisual."},
             {"role": "user", "content": prompt}
